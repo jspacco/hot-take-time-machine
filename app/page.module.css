@@ -1,0 +1,27 @@
+.main {
+  padding: 2rem 1.5rem 4rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  color: #991b1b;
+  font-size: 0.9375rem;
+}
+
+.loading {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  padding: 2rem 0;
+}
