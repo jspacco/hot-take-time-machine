@@ -7,3 +7,9 @@
 **Why:** First implementation — blank repo, building to spec.
 
 **Deviation from design.md:** None. All 11 modes implemented, labeled A/B/C, Reveal / Reveal All buttons, discussion prompt, example chips, CSS Modules throughout, no storage, API key server-side only.
+
+## 2026-09-25 — Make example hot takes collapsible
+
+**What:** Updated `HotTakeInput` component and CSS module to make the "Try one:" example hot takes section collapsible with a toggle button, starting collapsed by default.
+**Why:** The growing list of example takes was taking up too much vertical space and cluttering the initial front page view.
+**Deviation from design.md:** Example chips are now tucked behind an expandable toggle rather than rendered open by default.

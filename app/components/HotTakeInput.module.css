@@ -67,19 +67,55 @@
   cursor: not-allowed;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: left;
+.examplesSection {
   margin-top: 1rem;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.toggleButton:hover {
+  color: var(--text);
 }
 
 .chipsLabel {
   font-size: 0.8125rem;
   color: var(--muted);
-  font-weight: 500;
-  margin-right: 0.25rem;
+  font-weight: 600;
+}
+
+.toggleAction {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.toggleButton:hover .toggleAction {
+  opacity: 0.85;
+}
+
+.toggleIcon {
+  font-size: 0.75rem;
+  display: inline-block;
+  line-height: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: left;
+  margin-top: 0.75rem;
 }
 
 .chip {
@@ -101,3 +137,4 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+

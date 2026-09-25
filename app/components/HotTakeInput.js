@@ -6,6 +6,7 @@ import styles from './HotTakeInput.module.css'
 
 export default function HotTakeInput({ onGenerate, loading }) {
   const [value, setValue] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
 
   function handleChip(text) {
     setValue(text)
@@ -45,20 +46,37 @@ export default function HotTakeInput({ onGenerate, loading }) {
         </div>
       </form>
 
-      <div className={styles.chips}>
-        <span className={styles.chipsLabel}>Try one:</span>
-        {EXAMPLE_HOT_TAKES.map((take) => (
-          <button
-            key={take}
-            type="button"
-            className={styles.chip}
-            onClick={() => handleChip(take)}
-            disabled={loading}
-          >
-            {take}
-          </button>
-        ))}
+      <div className={styles.examplesSection}>
+        <button
+          type="button"
+          className={styles.toggleButton}
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-expanded={isOpen}
+        >
+          <span className={styles.chipsLabel}>Try one:</span>
+          <span className={styles.toggleAction}>
+            {isOpen ? 'hide examples' : 'show examples'}
+          </span>
+          <span className={styles.toggleIcon}>{isOpen ? '▾' : '▸'}</span>
+        </button>
+
+        {isOpen && (
+          <div className={styles.chips}>
+            {EXAMPLE_HOT_TAKES.map((take) => (
+              <button
+                key={take}
+                type="button"
+                className={styles.chip}
+                onClick={() => handleChip(take)}
+                disabled={loading}
+              >
+                {take}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
 }
+
