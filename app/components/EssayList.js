@@ -3,8 +3,27 @@
 import EssayCard from './EssayCard'
 import styles from './EssayList.module.css'
 
-export default function EssayList({ essays, modes, revealed, onReveal, onRevealAll, hotTake }) {
-  const allRevealed = revealed.every(Boolean)
+export default function EssayList({ essays, modes, hotTake }) {
+  function handleDownload() {
+    const textContent = [
+      `HOT TAKE:\n"${hotTake}"`,
+      ...essays.map((essay, i) => {
+        const label = ['A', 'B', 'C'][i] ?? (i + 1)
+        const modeLabel = modes[i]?.label || 'Unknown Mode'
+        return `============================================================\nESSAY ${label}: ${modeLabel}\n============================================================\n\n${essay.trim()}`
+      }),
+    ].join('\n\n\n')
+
+    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'hot-take-essays.txt'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -12,11 +31,13 @@ export default function EssayList({ essays, modes, revealed, onReveal, onRevealA
         <h2 className={styles.heading}>
           Three takes on: <em>"{hotTake}"</em>
         </h2>
-        {!allRevealed && (
-          <button className={styles.revealAll} onClick={onRevealAll}>
-            Reveal all
-          </button>
-        )}
+        <button
+          type="button"
+          className={styles.downloadButton}
+          onClick={handleDownload}
+        >
+          <span>↓</span> Download essays (.txt)
+        </button>
       </div>
 
       <div className={styles.grid}>
@@ -25,16 +46,14 @@ export default function EssayList({ essays, modes, revealed, onReveal, onRevealA
             key={i}
             index={i}
             essay={essay}
-            mode={modes[i]}
-            revealed={revealed[i]}
-            onReveal={() => onReveal(i)}
           />
         ))}
       </div>
 
       <div className={styles.discussion}>
-        <strong>Discussion prompt:</strong> Which essay is actually arguing the position? Can you find the sentence that gives it away?
+        <strong>Discussion prompt:</strong> Which essays are not doing a good job of making the argument? Why?
       </div>
     </div>
   )
 }
+

@@ -13,3 +13,9 @@
 **What:** Updated `HotTakeInput` component and CSS module to make the "Try one:" example hot takes section collapsible with a toggle button, starting collapsed by default.
 **Why:** The growing list of example takes was taking up too much vertical space and cluttering the initial front page view.
 **Deviation from design.md:** Example chips are now tucked behind an expandable toggle rather than rendered open by default.
+
+## 2026-09-25 — Add essay download and remove UI reveal buttons
+
+**What:** Removed on-screen Reveal / Reveal All buttons and mode pills from `EssayCard`, `EssayList`, and `page.js`. Added a "Download essays (.txt)" button in `EssayList` that exports all three essays along with their hot take and corresponding mode types into a single text file.
+**Why:** Revealing the modes in the web UI was not helpful during interactive discussion; exporting all essays with their associated mode types into a downloadable text file allows instructors and students to archive and review the full text and strategies offline.
+**Deviation from design.md:** Mode reveal buttons in the UI are removed; essay modes are now included in the downloaded text file instead of revealed in the browser.

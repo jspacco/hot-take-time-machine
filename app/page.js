@@ -36,25 +36,12 @@ export default function Page() {
         hotTake,
         essays: data.essays,
         modes,
-        revealed: [false, false, false],
       })
     } catch (err) {
       setError(err.message)
     } finally {
       setLoading(false)
     }
-  }
-
-  function handleReveal(index) {
-    setResult((prev) => {
-      const revealed = [...prev.revealed]
-      revealed[index] = true
-      return { ...prev, revealed }
-    })
-  }
-
-  function handleRevealAll() {
-    setResult((prev) => ({ ...prev, revealed: [true, true, true] }))
   }
 
   return (
@@ -81,9 +68,6 @@ export default function Page() {
               hotTake={result.hotTake}
               essays={result.essays}
               modes={result.modes}
-              revealed={result.revealed}
-              onReveal={handleReveal}
-              onRevealAll={handleRevealAll}
             />
           )}
         </div>
@@ -91,3 +75,4 @@ export default function Page() {
     </>
   )
 }
+
