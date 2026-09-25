@@ -29,7 +29,7 @@ export default function HotTakeInput({ onGenerate, loading }) {
             id="hot-take-input"
             className={styles.input}
             type="text"
-            placeholder="e.g. Participation grades are unfair"
+            placeholder=""
             value={value}
             onChange={(e) => setValue(e.target.value)}
             disabled={loading}
