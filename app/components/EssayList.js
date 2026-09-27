@@ -8,9 +8,9 @@ export default function EssayList({ essays, modes, hotTake }) {
     const textContent = [
       `HOT TAKE:\n"${hotTake}"`,
       ...essays.map((essay, i) => {
-        const label = ['A', 'B', 'C'][i] ?? (i + 1)
+        const number = i + 1
         const modeLabel = modes[i]?.label || 'Unknown Mode'
-        return `============================================================\nESSAY ${label}: ${modeLabel}\n============================================================\n\n${essay.trim()}`
+        return `============================================================\nESSAY #${number}: ${modeLabel}\n============================================================\n\n${essay.trim()}`
       }),
     ].join('\n\n\n')
 
