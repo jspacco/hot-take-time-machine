@@ -25,3 +25,10 @@
 **What:** Changed essay labels in `EssayCard` and `EssayList` export from "Essay A", "Essay B", "Essay C" to "Essay #1", "Essay #2", "Essay #3".
 **Why:** Some hot takes or essay types discuss A-B-C structures or lettered concepts, and using A/B/C labels for the essay cards causes confusion.
 **Deviation from design.md:** Essays are now numbered #1, #2, #3 instead of lettered A, B, C.
+
+
+## 2026-09-27 — Add expandable bad essay error modes reference in Header
+
+**What:** Added an interactive, collapsible reference section to `Header` that displays all 11 essay error modes defined in `lib/modes.js` (their label, signature color indicator pill, and prompt description).
+**Why:** Users and instructors need a quick and easy way from the main page to pop open and review the definitions and rhetorical strategies of the different bad essay error modes without leaving the application.
+**Deviation from design.md:** Added an expandable error modes reference panel in the header.
